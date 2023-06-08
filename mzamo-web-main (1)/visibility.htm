@@ -1,0 +1,23 @@
+<html> 
+  <head>
+    <title>Hiding and showing an element</title>
+ <script language="javascript" >
+ <!-- function setVis(objects, value) {
+  if (value =="hideme"){ 
+    document.getElementById(object).style.visibility = "hidden";
+  }else if (value == "showMe") { 
+    document.getElementById(object).style.visibility = "visible";
+  }
+ }
+ --> 
+ </script>
+  </head>
+
+  <body> 
+    <div id="myTag"> 
+      <img src="images/robery.png"/> 
+      </div>
+      <p onmouseover="setVis('myTag', 'hideMe')" onmouseout="setVis('myTag', 'showMe')">
+      Move your mouse here and your image will disappear.</p>
+  </body>
+</html>

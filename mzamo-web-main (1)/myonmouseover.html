@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FAQs</title>
+  <style>
+    .faq {
+      background-color: rgb(55, 158, 158);
+      padding: 10px; 
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+    .answer {
+      display: none;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Frequently Asked Questions</h1>
+  
+  <div class="faq" onmouseover="showAnswer('faq1')">Question 1: What is the purpose of this website?</div>
+  <div class="answer" id="faq1">This website provides information about our products and services.</div>
+
+  <div class="faq" onmouseover="showAnswer('faq2')">Question 2: How can I contact customer support?</div>
+  <div class="answer" id="faq2">You can reach our customer support team by calling our toll-free number or sending us an email.</div>
+
+  <div class="faq" onmouseover="showAnswer('faq3')">Question 3: Do you offer international shipping?</div>
+  <div class="answer" id="faq3">Yes, we offer international shipping to select countries. Please check our shipping policy for more details.</div>
+
+  <script>
+    function showAnswer(id) {
+      var answer = document.getElementById(id);
+      answer.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
