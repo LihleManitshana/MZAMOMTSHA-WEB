@@ -106,7 +106,6 @@ li a{
   margin:0;
   padding: 0;
   box-sizing: border-box;
-  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center; 
@@ -187,6 +186,85 @@ i#next {
 .GAME{
   font-size: large;
 }
+#contactForm{
+  width: 600px; 
+  padding: 20px; 
+  background-color: rgba(22, 93, 110, 0.342); 
+  border-radius: 4px;
+  font-size: 12px;
+ 
+
+}
+#contactForm button {
+  padding: 10px;
+  margin-top: 20px;
+  width: 20%;
+  color: white;
+  background-color: rgb(41, 57, 194);
+  border: none;
+  border-radius: 4px;
+}
+.input-control {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-control input {
+border: 2px solid #f0f0f0;
+border-radius: 4px;
+display: block;
+font-size: 12px;
+padding: 10px;
+width: 100%;
+}
+.input-control input:focus {
+  outline: 0;
+}
+.input-control.success input {
+  border-color: #09c372;
+}
+.input-control.error input {
+  border-color: #ff3860;
+}
+.input-control .error {
+  color: #ff3860;
+  font-size: 9px;
+  height: 13px;
+}
+ .popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    padding: 20px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    text-align: center;
+    z-index: 9999;
+    visibility: hidden;
+    transform: transform 0.4s, top0.4s;
+  }
+ 
+  .open-popup{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%,-50) scale(1);
+  }
+.popup button{
+  width: 100%;
+  margin-top: 50px;
+  padding: 10px 20px;
+  background:#007bff;
+  border:0;
+  outline:none;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+
 
 #footer{
   background: rgb(4,62,77);
