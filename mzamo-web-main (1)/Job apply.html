@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Job Application Form</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .alert {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+</style>
+
+</head>
+<body>
+  <div class="container">
+    <form id="contactForm" action="/">
+      <h2>Job Application</h2>
+      <div class="input-control">
+        <label for="name" class="form-label">Name:</label>
+        <input id="name" name="name" type="text" required>
+        <div id="nameError" class="error"></div>
+      </div>
+      <div class="input-control">
+        <label for="surname" class="form-label">Surname:</label>
+        <input id="surname" name="surname" type="text" required>
+        <div id="surnameError" class="error"></div>
+      </div> 
+      <div class="input-control">
+        <label for="contact" class="form-label">Contact number:</label>
+        <input id="contact" name="contact" type="text" required>
+        <div id="contactError" class="error"></div>
+      </div>
+      <div class="input-control">
+        <label for="email" class="form-label">Email:</label>
+        <input id="email" name="email" type="email" required>
+        <div id="emailError" class="error"></div>
+      </div>
+      <div class="input-control">
+        <label for="job_role" class="form-label">Job Role</label>
+        <select id="job_role" name="job_role" required> 
+          <option value="">Select a Job Role</option>
+          <option value="principal">Principal</option>
+          <option value="administrative assistant">Administrative Assistant</option>
+          <option value="foundation phase teacher">Foundation phase teacher</option>
+          <option value="intermediate phase teacher">Intermediate phase teacher</option>
+          <option value="senior & fet phase teacher">Senior & FET phase teacher</option>
+          <option value="care taker/cleaner">Care Taker/Cleaner</option>
+        </select>
+        <div id="jobRoleError" class="error"></div>
+      </div>
+      <div class="input-control">
+        <label for="address" class="form-label">Address:</label>
+        <input id="address" name="address" type="text" required>
+        <div id="addressError" class="error"></div>
+      </div>
+      <div class="input-control">
+        <label for="postal_code">Postal Code</label>
+        <input id="postal_code" name="postal_code" placeholder="Enter your area Postal Code..." required>
+        <div id="postalCodeError" class="error"></div>
+      </div>
+      <div class="input-control">
+        <label for="date">D.O.B</label>
+        <input id="date" name="date" type="date" required>
+        <div id="dobError" class="error"></div>
+      </div> 
+      <div class="input-control">
+        <label for="upload">Upload your CV</label>
+        <input type="file" id="upload" name="upload" required>
+        <div id="uploadError" class="error"></div>
+      </div>
+      <button type="submit" id="submitbtn">Submit</button>
+    </form>
+    <div id="alertBox"></div>
+  </div>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Clear previous error messages
+      clearErrors();
+
+      // Validate form fields
+      if (!validateForm()) {
+        return;
+      }
+
+      // Form submission successful
+      showSuccessMessage();
+      resetForm();
+      showAlert();
+    });
+
+    function validateForm() {
+      let isValid = true;
+
+      const name = document.getElementById('name').value.trim();
+      const surname = document.getElementById('surname').value.trim();
+      const contact = document.getElementById('contact').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const jobRole = document.getElementById('job_role').value;
+      const address = document.getElementById('address').value.trim();
+      const postalCode = document.getElementById('postal_code').value.trim();
+      const dob = document.getElementById('date').value.trim();
+      const upload = document.getElementById('upload').value.trim();
+
+      if (name === '') {
+        displayError('nameError', 'Please enter your name.');
+        isValid = false;
+      }
+
+      if (surname === '') {
+        displayError('surnameError', 'Please enter your surname.');
+        isValid = false;
+      }
+
+      if (contact === '') {
+        displayError('contactError', 'Please enter your contact number.');
+        isValid = false;
+      }
+
+      if (email === '') {
+        displayError('emailError', 'Please enter your email.');
+        isValid = false;
+      }
+
+      if (jobRole === '') {
+        displayError('jobRoleError', 'Please select a job role.');
+        isValid = false;
+      }
+
+      if (address === '') {
+        displayError('addressError', 'Please enter your address.');
+        isValid = false;
+      }
+
+      if (postalCode === '') {
+        displayError('postalCodeError', 'Please enter your postal code.');
+        isValid = false;
+      }
+
+      if (dob === '') {
+        displayError('dobError', 'Please enter your date of birth.');
+        isValid = false;
+      }
+
+      if (upload === '') {
+        displayError('uploadError', 'Please upload your CV.');
+        isValid = false;
+      }
+
+      return isValid;
+    }
+
+    function displayError(elementId, errorMessage) {
+      const errorElement = document.getElementById(elementId);
+      errorElement.innerText = errorMessage;
+    }
+
+    function clearErrors() {
+      const errorElements = document.getElementsByClassName('error');
+      for (let i = 0; i < errorElements.length; i++) {
+        errorElements[i].innerText = '';
+      }
+    }
+
+    function showSuccessMessage() {
+  const alertBox = document.getElementById('alertBox');
+  alertBox.innerText = 'Thank you for your application! We will get back to you soon.';
+  alertBox.classList.add('alert'); // Updated class name
+}
+
+
+    function resetForm() {
+      document.getElementById('contactForm').reset();
+    }
+
+    function showAlert() {
+      const alertBox = document.getElementById('alertBox');
+      alertBox.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
